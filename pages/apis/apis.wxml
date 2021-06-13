@@ -1,0 +1,35 @@
+<!--pages/apis/apis.wxml-->
+
+<!-- showToast -->
+<view>
+	<button bind:tap="showToast">Toast</button>
+</view>
+
+<!-- showModal -->
+<view>
+	<button bind:tap="showModal">Modal</button>
+</view>
+
+<!-- showLoading -->
+<view>
+	<button bind:tap="showLoading">Loading</button>
+</view>
+
+<!-- showActionSheet -->
+<view>
+	<button bind:tap="showActionSheet">ActionSheet</button>
+</view>
+
+<view>
+	<button open-type="share">Share</button>
+</view>
+
+<!-- 页面跳转：navigator标签 -->
+<view>
+	<navigator url="/pages/home/home">回首页</navigator>
+</view>
+
+<!-- 页面跳转：代码方式 -->
+<view>
+	<button bind:tap="handleNaviTo">到about</button>
+</view>

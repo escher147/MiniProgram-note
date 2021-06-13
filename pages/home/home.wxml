@@ -1,0 +1,82 @@
+<!--pages/home/home.wxml-->
+<text>hello world\n</text>
+<text user-select>hello minipro</text>
+<view>{{message}}</view>
+<text wx:for="{{list}}" wx:for-item="color" wx:key="item">{{color}} </text>
+<view>{{count}}</view>
+<view>
+   <button size="mini" bindtap="incrementHandler">+</button>
+</view>
+<view>{{nowTime}}</view>
+<view>
+   <navigator class="navi" open-type="navigateBack">返回</navigator>
+</view>
+<view>
+   <navigator class="navi" url="/pages/about/about?user=admin&password=0000">到关于页</navigator>
+</view>
+<view>
+   <button bindtap="switchColor" size="mini">切换颜色</button>
+   <view class="sw-box {{clicked ? 'swcolor' : ''}}"></view>
+</view>
+
+<!-- 获取授权 -->
+<button size="mini" bindtap="handleGetUserInfo">登录授权</button>
+<!-- block不会渲染，单纯作为包裹组件的标签 -->
+<block wx:if="{{Object.keys(userInfo).length !== 0}}" class="user-info">
+   <image src="{{userInfo.avatarUrl}}" class="avatar"></image>
+   <view>{{userInfo.nickName}}</view>
+</block>
+
+<!-- 选取图片 -->
+<view>
+   <button type="primary" bindtap="chooseImg">选择图片</button>
+   <image wx:if="{{showImg.length}}" src="{{showImg}}"></image>
+</view>
+
+<view>
+   <input type="text" confirm-type="search"/>
+   <input type="idcard"/>
+   <input type="digit"/>
+   <input type="number"/>
+   <input type="text"
+          bindfocus="inputFocus"
+          bindinput="inputContent"
+          bindblur="inputBlur"/>
+</view>
+
+<!-- 水平滚动 -->
+<scroll-view class="container1" scroll-x>
+   <view wx:for="{{10}}" wx:key="item">{{item}}</view>
+</scroll-view>
+
+<!-- 垂直滚动 -->
+<scroll-view class="container2" scroll-y>
+   <view wx:for="{{10}}" wx:key="item">{{item}}</view>
+</scroll-view>
+
+<!-- wxs -->
+
+<wxs module="numberFix">
+   var foo = 1111;
+   function fixNumber(number, flo) {
+      return number.toFixed(flo);
+   }
+   module.exports = {
+      fixNumber: fixNumber,
+      foo: foo
+   }
+</wxs>
+<view>{{numberFix.foo}}</view>
+<view>{{numberFix.fixNumber(3.1415926, 2)}}</view>
+
+<!-- 事件参数传递 -->
+<view class="fruit-con">
+   <view wx:for="{{fruit}}"
+         wx:key="item"
+         bind:tap="fruitClick"
+         data-index="{{index}}"
+         data-item="{{item}}">
+         {{item}}
+         </view>
+</view>
+<!-- <open-data type="userNickName"></open-data> -->

@@ -1,0 +1,4 @@
+/* pages/apis/apis.wxss */
+	view {
+		margin: 40rpx 0;
+	}

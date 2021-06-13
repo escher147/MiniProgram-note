@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/apis/apis",
+    "pages/home/home",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "white"
+    
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
